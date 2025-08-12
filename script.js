@@ -4,26 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const recommendButton = document.getElementById('recommend-button');
     const recommendationsContainer = document.getElementById('recommendations');
 
-    let allBooks = [];
-
-    // Función para cargar los libros del archivo JSON
-    async function loadBooks() {
-        try {
-            const response = await fetch('books.json');
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            allBooks = await response.json();
-            createGenreCheckboxes();
-        } catch (error) {
-            console.error("No se pudo cargar el archivo de libros:", error);
-            recommendationsContainer.innerHTML = '<p>Lo sentimos, no pudimos cargar las recomendaciones. Por favor, inténtalo de nuevo más tarde.</p>';
-        }
-    }
+    // La variable 'allBooks' ahora se carga desde el archivo books.js
+    // ¡No necesitamos el código de fetch!
 
     // --- Lógica para cargar y procesar los géneros ---
     function createGenreCheckboxes() {
-        const allGenres = [...new Set(allBooks.flatMap(book => book.genero.split('-')))];
+        const allGenres = [...new Set(allBooks.flatMap(book => book.genero.split('-')))].filter(g => g);
         genreSelectorDropdown.innerHTML = '';
         allGenres.forEach(genre => {
             const label = document.createElement('label');
@@ -82,6 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Cargar los libros al iniciar la página
-    loadBooks();
+    // Inicializar la página
+    createGenreCheckboxes();
 });
