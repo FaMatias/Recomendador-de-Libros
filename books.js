@@ -173,7 +173,7 @@ const allBooks = [
     "autor": "Arthur Conan Doyle",
     "genero": "misterio",
     "sinopsis": "Colección de relatos sobre el legendario detective Sherlock Holmes y su fiel amigo, el Dr. Watson, que resuelven los crímenes más enigmáticos de Londres."
-  }
+  },
   {
     "id": 1,
     "titulo": "El Señor de los Anillos",
@@ -453,7 +453,7 @@ const allBooks = [
     "autor": "Joseph Conrad",
     "genero": "clasicos",
     "sinopsis": "Un marinero viaja al interior de África para encontrar a un enigmático agente de comercio de marfil, confrontando la oscuridad del alma humana."
-  }
+  },
   {
     "id": 1,
     "titulo": "El Señor de los Anillos",
@@ -838,7 +838,7 @@ const allBooks = [
     "autor": "Paulo Coelho",
     "genero": "ficcion-contemporanea",
     "sinopsis": "Un joven pastor andaluz viaja a las pirámides de Egipto en busca de un tesoro, aprendiendo valiosas lecciones sobre el destino, el amor y la importancia de seguir los sueños."
-  }
+  },
   {
     "id": 56,
     "titulo": "El Cuento de la Criada",
@@ -1013,7 +1013,7 @@ const allBooks = [
     "autor": "Edgar Allan Poe",
     "genero": "terror",
     "sinopsis": "Un hombre atormentado por su alcoholismo y la violencia, relata cómo su vida se desmorona tras asesinar a su gato, llevándolo a una espiral de locura y crimen."
-  }
+  },
   {
     "id": 81,
     "titulo": "Persepolis",
@@ -1153,7 +1153,7 @@ const allBooks = [
     "autor": "Oscar Wilde",
     "genero": "clasicos",
     "sinopsis": "Un joven llamado Dorian Gray desea que un retrato envejezca en su lugar, mientras él se mantiene eternamente joven. Sin embargo, su alma se vuelve corrupta y el retrato muestra su verdadera decadencia."
-  }
+  },
   {
     "id": 101,
     "titulo": "La Carretera",
@@ -1328,7 +1328,7 @@ const allBooks = [
     "autor": "Mario Puzo",
     "genero": "novela-negra",
     "sinopsis": "Un joven se ve obligado a tomar las riendas del imperio criminal de su familia en Nueva York, sumergiéndose en un mundo de violencia, lealtad y traición."
-  }
+  },
   {
     "id": 126,
     "titulo": "El viejo y el mar",
@@ -1503,7 +1503,7 @@ const allBooks = [
     "autor": "Robin Sharma",
     "genero": "autoayuda",
     "sinopsis": "Un exitoso abogado sufre un infarto y decide vender todas sus posesiones para viajar a los Himalayas, donde aprende valiosas lecciones de vida."
-  }
+  },
   {
     "id": 151,
     "titulo": "Saga 'Alas de Sangre' (Saga completa)",
@@ -1573,7 +1573,7 @@ const allBooks = [
     "autor": "Stephen King y Richard Chizmar",
     "genero": "terror",
     "sinopsis": "Una niña llamada Gwendy recibe una misteriosa caja con botones que le da poderes, pero también le hace preguntas morales sobre el poder y la responsabilidad."
-  }
+  },
   {
     "id": 161,
     "titulo": "Cómo ser un estoico",
@@ -1713,7 +1713,7 @@ const allBooks = [
     "autor": "Miyamoto Musashi",
     "genero": "filosofia-oriental",
     "sinopsis": "Un tratado de artes marciales y estrategia que se enfoca en la autodisciplina, el dominio de uno mismo y la preparación para la adversidad. Similar en espíritu a las enseñanzas estoicas."
-  }
+  },
   {
     "id": 181,
     "titulo": "El Gen: Una historia íntima",
@@ -1853,7 +1853,7 @@ const allBooks = [
     "autor": "Matt Ridley",
     "genero": "biotecnologia-genetica",
     "sinopsis": "Explora la historia humana a través de los 23 pares de cromosomas, con reflexiones sobre la evolución, la genética y la naturaleza de la vida."
-  }
+  },
   {
     "id": 201,
     "titulo": "Saga 'Mistborn' (Saga completa)",
@@ -2553,7 +2553,7 @@ const allBooks = [
     "autor": "Jorge Luis Borges",
     "genero": "cuentos",
     "sinopsis": "Una colección de cuentos breves que exploran temas de laberintos, bibliotecas infinitas y realidades alternativas, desafiando la noción del tiempo y el espacio."
-  }
+  },
   {
     "id": 301,
     "titulo": "Neverwhere",
