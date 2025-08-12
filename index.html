@@ -7,123 +7,15 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="background-animation"></div>
     <div class="container">
         <h1>Encuentra tu próxima lectura 📖</h1>
         <p>Selecciona los géneros que más te gustan y recibe recomendaciones personalizadas.</p>
 
-        <div class="genre-selector">
-            <label>
-                <input type="checkbox" name="genre" value="fantasia"> Fantasía
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="ciencia-ficcion"> Ciencia Ficción
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="novela-historica"> Novela Histórica
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="misterio"> Misterio
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="romance"> Romance
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="biografia"> Biografía
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="clasicos"> Clásicos
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="divulgacion-cientifica"> Divulgación Científica
-            </label>
-
-            <label>
-                <input type="checkbox" name="genre" value="distopia"> Distopía
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="terror"> Terror
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="thriller-psicologico"> Thriller Psicológico
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="ficcion-contemporanea"> Ficción Contemporánea
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="aventura"> Aventura
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="fantasia-oscura"> Fantasía Oscura
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="autoayuda"> Autoayuda
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="mitologia"> Mitología
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="filosofia"> Filosofía
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="ensayo"> Ensayo
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="biotecnologia-genetica"> Biotecnología-Genética
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="programacion"> Programación
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="ingenieria-software"> Ingeniería de Software
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="algoritmos"> Algoritmos
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="python"> Python
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="javascript"> JavaScript
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="java"> Java
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="ciberpunk"> Ciberpunk
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="fantasia-urbana"> Fantasía Urbana
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="fantasia-comedia"> Fantasía Comedia
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="thriller-accion"> Thriller de Acción
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="distopia-juvenil"> Distopía Juvenil
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="novela-negra"> Novela Negra
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="fabula"> Fábula
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="cuentos"> Cuentos
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="novela-grafica"> Novela Gráfica
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="romance-historico"> Romance Histórico
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="steampunk"> Steampunk
-            </label>
-            <label>
-                <input type="checkbox" name="genre" value="ciencia-ficcion-blanda"> Ciencia Ficción Blanda
-            </label>
+        <div class="dropdown-container">
+            <button id="dropdown-button">Seleccionar Géneros</button>
+            <div class="genre-selector-dropdown" id="genre-selector-dropdown">
+                </div>
         </div>
 
         <button id="recommend-button">Recomendar Libros</button>
@@ -132,6 +24,7 @@
         </div>
     </div>
     
+    <script src="books.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
