@@ -20,16 +20,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Lógica de eventos ---
-    dropdownButton.addEventListener('click', () => {
-        genreSelectorDropdown.classList.toggle('show');
+    // --- Lógica de eventos para la alternativa del menú ---
+    dropdownButton.addEventListener('click', (event) => {
+        // Evita que el clic se propague al 'window'
+        event.stopPropagation(); 
+        // Alternar el estilo de 'display' para mostrar/ocultar el menú
+        if (genreSelectorDropdown.style.display === 'block') {
+            genreSelectorDropdown.style.display = 'none';
+        } else {
+            genreSelectorDropdown.style.display = 'block';
+        }
     });
 
     // Cerrar el menú si se hace clic fuera de él
-    window.addEventListener('click', (event) => {
-        if (!event.target.matches('#dropdown-button') && !event.target.closest('.genre-selector-dropdown')) {
-            genreSelectorDropdown.classList.remove('show');
+    window.addEventListener('click', () => {
+        if (genreSelectorDropdown.style.display === 'block') {
+            genreSelectorDropdown.style.display = 'none';
         }
+    });
+    
+    // Evitar que el clic dentro del menú lo cierre
+    genreSelectorDropdown.addEventListener('click', (event) => {
+        event.stopPropagation();
     });
 
     recommendButton.addEventListener('click', () => {
@@ -70,5 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Inicialización del menú
     createGenreCheckboxes();
 });
