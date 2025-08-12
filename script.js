@@ -4,11 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const recommendButton = document.getElementById('recommend-button');
     const recommendationsContainer = document.getElementById('recommendations');
 
-    // La variable 'allBooks' ahora se carga desde el archivo books.js
-    // ¡No necesitamos el código de fetch!
-
     // --- Lógica para cargar y procesar los géneros ---
     function createGenreCheckboxes() {
+        if (!allBooks || allBooks.length === 0) {
+            console.error("El array allBooks está vacío o no se ha cargado.");
+            return;
+        }
+
         const allGenres = [...new Set(allBooks.flatMap(book => book.genero.split('-')))].filter(g => g);
         genreSelectorDropdown.innerHTML = '';
         allGenres.forEach(genre => {
@@ -68,6 +70,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ¡Aquí está el cambio! Ahora se llama a la función para inicializar la página.
     createGenreCheckboxes();
 });
