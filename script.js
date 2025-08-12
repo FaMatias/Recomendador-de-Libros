@@ -68,6 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Inicializar la página
+    // ¡Aquí está el cambio! Ahora se llama a la función para inicializar la página.
     createGenreCheckboxes();
 });
