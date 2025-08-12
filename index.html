@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recomendador de Libros 📚</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Encuentra tu próxima lectura 📖</h1>
+        <p>Selecciona los géneros que más te gustan y recibe recomendaciones personalizadas.</p>
+
+        <div class="genre-selector">
+            <label>
+                <input type="checkbox" name="genre" value="fantasia"> Fantasía
+            </label>
+            <label>
+                <input type="checkbox" name="genre" value="ciencia-ficcion"> Ciencia Ficción
+            </label>
+            <label>
+                <input type="checkbox" name="genre" value="novela-historica"> Novela Histórica
+            </label>
+            <label>
+                <input type="checkbox" name="genre" value="misterio"> Misterio
+            </label>
+            <label>
+                <input type="checkbox" name="genre" value="romance"> Romance
+            </label>
+        </div>
+
+        <button id="recommend-button">Recomendar Libros</button>
+
+        <div class="recommendations-container" id="recommendations">
+            </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
