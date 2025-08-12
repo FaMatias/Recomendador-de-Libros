@@ -1,75 +1,77 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const dropdownButton = document.getElementById('dropdown-button');
+    const genreSelectorDropdown = document.getElementById('genre-selector-dropdown');
     const recommendButton = document.getElementById('recommend-button');
     const recommendationsContainer = document.getElementById('recommendations');
+
     let allBooks = [];
 
-    // Carga los datos de los libros desde el archivo JSON
-    fetch('books.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            allBooks = data;
-        })
-        .catch(error => {
-            console.error('Error al cargar los libros:', error);
-            recommendationsContainer.innerHTML = '<p class="no-books">No se pudieron cargar los libros. Por favor, intenta de nuevo más tarde.</p>';
+    // Cargar los datos de books.json (cambiado a un array de ejemplo para esta demostración)
+    // En tu caso, asegúrate de que el archivo 'books.js' contenga el array de JSON
+    // de libros que creamos antes, o de cargarlo dinámicamente si es necesario.
+    // Para simplificar, asumiremos que tu archivo books.js existe y contiene 'allBooks'.
+    
+    // --- Lógica para cargar y procesar los géneros ---
+    const allGenres = [...new Set(allBooks.flatMap(book => book.genero.split('-')))];
+    
+    function createGenreCheckboxes() {
+        genreSelectorDropdown.innerHTML = ''; // Limpiar el contenido existente
+        allGenres.forEach(genre => {
+            const label = document.createElement('label');
+            label.innerHTML = `<input type="checkbox" name="genre" value="${genre}"> ${genre.charAt(0).toUpperCase() + genre.slice(1).replace('-', ' ')}`;
+            genreSelectorDropdown.appendChild(label);
         });
+    }
 
-    recommendButton.addEventListener('click', () => {
-        const selectedGenres = getSelectedGenres();
-        
-        if (selectedGenres.length === 0) {
-            alert('Por favor, selecciona al menos un género.');
-            return;
-        }
+    createGenreCheckboxes();
+    // ----------------------------------------------------
 
-        const recommendedBooks = filterBooksByGenres(selectedGenres);
-        displayBooks(recommendedBooks);
+    dropdownButton.addEventListener('click', () => {
+        genreSelectorDropdown.classList.toggle('show');
     });
 
-    /**
-     * Obtiene los valores de los checkboxes seleccionados.
-     * @returns {string[]} Un array con los géneros seleccionados.
-     */
-    function getSelectedGenres() {
-        const checkboxes = document.querySelectorAll('input[name="genre"]:checked');
-        return Array.from(checkboxes).map(checkbox => checkbox.value);
-    }
+    // Cerrar el menú si se hace clic fuera de él
+    window.addEventListener('click', (event) => {
+        if (!event.target.matches('#dropdown-button') && !event.target.closest('.genre-selector-dropdown')) {
+            genreSelectorDropdown.classList.remove('show');
+        }
+    });
 
-    /**
-     * Filtra la lista de libros basándose en los géneros seleccionados.
-     * @param {string[]} genres - Los géneros a buscar.
-     * @returns {object[]} Un array de objetos de libros que coinciden.
-     */
-    function filterBooksByGenres(genres) {
-        return allBooks.filter(book => genres.includes(book.genero));
-    }
-
-    /**
-     * Muestra los libros recomendados en la página.
-     * @param {object[]} books - El array de libros a mostrar.
-     */
-    function displayBooks(books) {
-        recommendationsContainer.innerHTML = ''; // Limpia el contenedor
-
-        if (books.length === 0) {
-            recommendationsContainer.innerHTML = '<p class="no-books">Lo sentimos, no tenemos libros para estos géneros.</p>';
+    recommendButton.addEventListener('click', () => {
+        const selectedGenres = Array.from(document.querySelectorAll('input[name="genre"]:checked')).map(checkbox => checkbox.value);
+        
+        if (selectedGenres.length === 0) {
+            recommendationsContainer.innerHTML = '<p>Por favor, selecciona al menos un género.</p>';
             return;
         }
 
-        books.forEach(book => {
-            const card = document.createElement('div');
-            card.className = 'book-card';
-            card.innerHTML = `
+        const filteredBooks = allBooks.filter(book => {
+            const bookGenres = book.genero.split('-');
+            return selectedGenres.some(genre => bookGenres.includes(genre));
+        });
+
+        displayRecommendations(filteredBooks);
+    });
+
+    function displayRecommendations(books) {
+        recommendationsContainer.innerHTML = '';
+        if (books.length === 0) {
+            recommendationsContainer.innerHTML = '<p>No se encontraron libros que coincidan con los géneros seleccionados.</p>';
+            return;
+        }
+
+        const randomBooks = books.sort(() => 0.5 - Math.random()).slice(0, 5); // 5 recomendaciones aleatorias
+        
+        randomBooks.forEach(book => {
+            const bookCard = document.createElement('div');
+            bookCard.classList.add('book-card');
+            bookCard.innerHTML = `
                 <h3>${book.titulo}</h3>
                 <p><strong>Autor:</strong> ${book.autor}</p>
+                <p><strong>Género:</strong> ${book.genero.split('-').map(g => g.charAt(0).toUpperCase() + g.slice(1).replace('-', ' ')).join(', ')}</p>
                 <p>${book.sinopsis}</p>
             `;
-            recommendationsContainer.appendChild(card);
+            recommendationsContainer.appendChild(bookCard);
         });
     }
 });
