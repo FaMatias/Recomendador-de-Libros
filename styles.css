@@ -2,16 +2,15 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #fff;
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    /* Eliminamos 'display: flex' y 'align-items: center' para permitir el scroll */
+    min-height: 100vh; /* Asegura que el fondo cubra toda la pantalla */
     position: relative;
-    overflow: hidden;
+    /* Esta es la línea que causaba el problema. La eliminamos.
+    overflow: hidden; */
 }
 
 .background-animation {
-    position: absolute;
+    position: fixed; /* Cambiado a 'fixed' para que la animación se quede quieta al hacer scroll */
     top: 0;
     left: 0;
     width: 100%;
@@ -38,6 +37,7 @@ body {
     width: 100%;
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.18);
+    margin: 40px auto; /* Agregamos márgenes automáticos para centrar y dar espacio */
 }
 
 h1 {
@@ -51,7 +51,7 @@ p {
     font-weight: 300;
 }
 
-/* Nuevo estilo para el menú desplegable */
+/* Estilo para el menú desplegable */
 .dropdown-container {
     position: relative;
     width: 100%;
